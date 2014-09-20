@@ -16,7 +16,30 @@
 			<link rel="stylesheet" href="stylesheets/style.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="stylesheets/ie/v8.css" /><![endif]-->
-	</head><div id="user_nav">
+	</head>
+	<!-- Header -->
+		<section id="header">
+			<header>
+				<h1>STEALTH</h1>
+				<p>Anonoymous chat with a twist</p>
+			</header>
+	    <h2>Sign up</h2>
+		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		  <%= devise_error_messages! %>
+
+		  <div><%= f.label :email %><br />
+		  <%= f.email_field :email, :class => "position: relative; left: 38%; width: auto; height: 65px;" %></div>
+
+		  <div><%= f.label :password %><br />
+		    <%= f.password_field :password, autocomplete: "off" %></div>
+
+		  <div><%= f.label :password_confirmation %><br />
+		    <%= f.password_field :password_confirmation, autocomplete: "off"%></div>
+
+		  <div><%= f.submit "Sign Up", :class => "button style2 scrolly scrolly-centered" %></div>
+		<% end %>
+		</section>
+	<div id="user_nav">
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
@@ -27,7 +50,7 @@
 	  <%= devise_error_messages! %>
 
 	  <div><%= f.label :email %><br />
-	  <%= f.email_field :email, autofocus: true %></div>
+	  <%= f.email_field :email %></div>
 
 	  <div><%= f.label :password %><br />
 	    <%= f.password_field :password, autocomplete: "off" %></div>
@@ -45,7 +68,7 @@
 
 	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 	  <div><%= f.label :email %><br />
-	  <%= f.email_field :email, autofocus: true %></div>
+	  <%= f.email_field :email%></div>
 
 	  <div><%= f.label :password %><br />
 	    <%= f.password_field :password, autocomplete: "off" %></div>
@@ -59,3 +82,4 @@
   <% end %>
 </div>
 </html>
+
